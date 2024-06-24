@@ -1,101 +1,194 @@
-*{
+/* Base Styles */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins','sans-serif';
+    font-family: 'Poppins', 'sans-serif';
     box-sizing: border-box;
 }
-.container{
-    width:100%;
+
+/* Container */
+.container {
+    width: 100%;
     min-height: 100vh;
-    background: linear-gradient(135deg,#153677,#4e085f);
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 20px; /* Ensure content does not touch the edges */
+    box-sizing: border-box; /* Include padding in width and height calculations */
 }
-.todo-app{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+
+/* Todo App Box */
+.todo-app {
     width: 100%;
     max-width: 540px;
     background: #fff;
-    margin:0 auto 20px;
+    margin: 0 auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
+    box-sizing: border-box;
 }
-.todo-app h2{
+
+/* Heading */
+.todo-app h2 {
     color: #002765;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
-.todo-app h2 img{
+
+.todo-app h2 img {
     width: 30px;
     margin-left: 10px;
 }
-.row{
+
+/* Input Row */
+.row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #edeef0;
     border-radius: 30px;
-    padding-left: 20px;
+    padding: 10px 20px; /* Adjusted padding */
     margin-bottom: 25px;
+    box-sizing: border-box;
 }
-input{
+
+/* Input Field */
+input {
     flex: 1;
     border: none;
     outline: none;
     background: transparent;
     padding: 10px;
+    font-size: 1em; /* Relative units for font size */
 }
-button{
+
+/* Button */
+button {
     border: none;
     outline: none;
     padding: 16px 50px;
     background: #ff5945;
     color: #fff;
-    font-size: 16px;
+    font-size: 1em; /* Relative units */
     cursor: pointer;
     border-radius: 40px;
 }
-ul li{
+
+/* Todo List Items */
+ul li {
     list-style: none;
-    font-size: 17px;
+    font-size: 17px; /* Relative units */
     padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
     position: relative;
-
 }
-ul li::before{
+
+ul li::before {
     content: " ";
-    position:absolute;
-    height:28px;
-    width:28px;
+    position: absolute;
+    height: 28px;
+    width: 28px;
     border-radius: 50%;
     background-image: url(images/unchecked.png);
     background-size: cover;
-    background-position:center;
-    top:6px;
-    left:0px;
+    background-position: center;
+    top: 6px;
+    left: 0px;
 }
-ul li.checked{
+
+/* Checked State */
+ul li.checked {
     color: #555;
-    text-decoration:line-through;
+    text-decoration: line-through;
 }
-ul li.checked::before{
+
+ul li.checked::before {
     background-image: url(images/checked.png);
 }
-ul li span{
+
+/* Delete Icon */
+ul li span {
     position: absolute;
     right: 0;
-    top:5px;
-    width:40px;
-    height:40px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
     font-size: 22px;
-    color:#555;
+    color: #555;
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
 }
-ul li span:hover{
+
+ul li span:hover {
     background: #edeef0;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and medium screens */
+@media (max-width: 768px) {
+    .todo-app {
+        padding: 20px 15px 50px; /* Reduce padding */
+    }
+
+    .row {
+        padding: 10px 15px; /* Adjust padding */
+    }
+
+    button {
+        padding: 12px 30px; /* Reduce padding */
+    }
+
+    ul li {
+        font-size: 16px; /* Slightly reduce font size */
+        padding: 10px 6px 10px 40px; /* Adjust padding */
+    }
+
+    ul li::before {
+        height: 24px; /* Adjust size */
+        width: 24px;
+        top: 5px;
+    }
+
+    ul li span {
+        width: 35px; /* Adjust size */
+        height: 35px;
+        font-size: 20px;
+        line-height: 35px;
+    }
+}
+
+/* For mobile phones and small screens */
+@media (max-width: 480px) {
+    .todo-app {
+        padding: 15px 10px 30px; /* Further reduce padding */
+    }
+
+    .row {
+        padding: 8px 10px; /* Further adjust padding */
+    }
+
+    button {
+        padding: 10px 20px; /* Further reduce padding */
+        font-size: 0.9em; /* Adjust font size */
+    }
+
+    ul li {
+        font-size: 15px; /* Further reduce font size */
+        padding: 8px 4px 8px 30px; /* Further adjust padding */
+    }
+
+    ul li::before {
+        height: 20px; /* Further adjust size */
+        width: 20px;
+        top: 4px;
+    }
+
+    ul li span {
+        width: 30px; /* Further adjust size */
+        height: 30px;
+        font-size: 18px;
+        line-height: 30px;
+    }
 }
